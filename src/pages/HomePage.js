@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-export default class ProductList extends Component {
+export default class HomePage extends Component {
   state = {
-    products: [],
+    // products: [],
     search: '',
   };
 
@@ -15,6 +16,9 @@ export default class ProductList extends Component {
     return (
       <div>
         <input onChange={ this.handleChange } />
+        <button type="button">
+          <Link to="/Cart" data-testid="shopping-cart-button">Carrinho</Link>
+        </button>
         { !search
         && (
           <div>
