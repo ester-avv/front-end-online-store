@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import ProductList from './components/ProductList';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div> </div>
+        <Route path="/" component={ ProductList } />
       </BrowserRouter>
     );
   }
