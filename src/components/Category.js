@@ -20,9 +20,6 @@ export default class Category extends Component {
     return (
       <div>
         {categories.map((elemento) => (
-        //   <p key={ elemento.id }>
-        //     {elemento.name}
-        //   </p>
           <section key={ elemento.id }>
             <label htmlFor={ elemento.id }>
               <input
