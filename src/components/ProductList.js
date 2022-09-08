@@ -3,18 +3,27 @@ import React, { Component } from 'react';
 export default class ProductList extends Component {
   state = {
     products: [],
+    search: '',
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({ search: target.value });
   };
 
   render() {
-    // const { products } = this.state;
+    const { search } = this.state;
     return (
       <div>
-        <input />
-        <div>
-          <p data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </p>
-        </div>
+        <input onChange={ this.handleChange } />
+        { !search
+        && (
+          <div>
+            <p data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma
+              categoria.
+            </p>
+          </div>
+        ) }
       </div>
     );
   }
