@@ -15,6 +15,8 @@ export default class Category extends Component {
     this.setState({ categories });
   };
 
+  // novo push
+
   render() {
     const { categories } = this.state;
     return (
