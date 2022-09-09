@@ -21,6 +21,10 @@ export default class HomePage extends Component {
     this.setState({ hasProduct: true, products: products.results });
   };
 
+  setProducts = async (products) => {
+    this.setState({ hasProduct: true, products });
+  };
+
   render() {
     const { search, hasProduct, products } = this.state;
     return (
@@ -46,7 +50,7 @@ export default class HomePage extends Component {
             </p>
           </div>
         ) }
-        <Category />
+        <Category onCategorySet={ this.setProducts } />
         {hasProduct ? products.map(({ title, thumbnail, price, id }) => (
           <div key={ id }>
             <Products
