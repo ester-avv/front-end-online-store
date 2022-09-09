@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCategories } from '../services/api';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 
 export default class Category extends Component {
   state = {
@@ -15,10 +15,17 @@ export default class Category extends Component {
     this.setState({ categories });
   };
 
+  handleId = async (categoryId) => {
+    const categoriesIds = await getProductsFromCategoryAndQuery(categoryId, '$QUERY');
+    console.log(categoriesIds);
+    return categoriesIds.results;
+  };
+
   render() {
     const { categories } = this.state;
+    // console.log(categories);
     return (
-      <div>
+      <div className="categories">
         {categories.map((elemento) => (
           <section key={ elemento.id }>
             <label htmlFor={ elemento.id }>
@@ -27,6 +34,7 @@ export default class Category extends Component {
                 type="radio"
                 id={ elemento.id }
                 data-testid="category"
+                onClick={ () => this.handleId(elemento.id) }
               />
               {elemento.name}
             </label>
