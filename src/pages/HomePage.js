@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Category from '../components/Category';
 
 export default class HomePage extends Component {
   state = {
@@ -28,6 +29,7 @@ export default class HomePage extends Component {
             </p>
           </div>
         ) }
+        <Category />
       </div>
     );
   }
