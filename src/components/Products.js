@@ -6,11 +6,16 @@ export default class Products extends Component {
     const { title, thumbnail, price, id } = this.props;
     return (
       <div data-testid="product">
-        <p key={ id }>
-          Nome
-          {' '}
-          {title}
+        <p>
+          { id }
         </p>
+        <p>
+          { title }
+        </p>
+        <p>
+          { price }
+        </p>
+
         <img src={ thumbnail } alt={ title } />
         <p>
           Valor
